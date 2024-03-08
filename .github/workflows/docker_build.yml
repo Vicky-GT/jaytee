@@ -22,8 +22,8 @@ jobs:
 
     - name: Push Docker Image
       run: |
-        docker tag vicky-gt/jaytee vicky-gt/jaytee:latest
-        docker push vicky-gt/jaytee:latest
+        docker tag vicky-gt/jaytee vigneshwargt/jaytee:latest
+        docker push vigneshwargt/jaytee:latest
 
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
