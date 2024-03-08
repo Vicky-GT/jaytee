@@ -16,7 +16,6 @@
 
     - name: Build Docker image
       community.general.docker_image:
-      docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         source: build
         build:
@@ -25,7 +24,6 @@
           force: yes
 
     - name: Log in to Docker Hub
-      community.general.docker_image:
       docker_login:
         username: "{{ dockerhub_username }}"
         password: "{{ dockerhub_password }}"
