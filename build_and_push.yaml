@@ -33,4 +33,4 @@
         source: build  # <-- add
         build:         # <-- add
           path: /tmp/jaytee  # <-- move under build:
-      force: yes
+        force: yes
