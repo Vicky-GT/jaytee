@@ -17,12 +17,10 @@
     - name: Build Docker image
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
+        source: build
         build:
           path: /tmp/jaytee
           dockerfile: Dockerfile  # Adjust the path to Dockerfile if necessary
-          source: build  # <-- add
-          build:         # <-- add
-            path: /tmp/jaytee  # <-- move under build:
           force: yes
 
     - name: Log in to Docker Hub
