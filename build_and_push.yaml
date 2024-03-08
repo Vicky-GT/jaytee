@@ -20,6 +20,10 @@
         build:
           path: /tmp/jaytee
           dockerfile: Dockerfile  # Adjust the path to Dockerfile if necessary
+          source: build  # <-- add
+          build:         # <-- add
+            path: /tmp/jaytee  # <-- move under build:
+          force: yes
 
     - name: Log in to Docker Hub
       docker_login:
@@ -30,7 +34,4 @@
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         push: yes
-        source: build  # <-- add
-        build:         # <-- add
-          path: /tmp/jaytee  # <-- move under build:
-        force: yes
+        
