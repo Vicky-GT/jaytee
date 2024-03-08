@@ -18,12 +18,12 @@ jobs:
       uses: docker/setup-buildx-action@v1
 
     - name: Build Docker Image
-      run:  docker build -t Vicky-GT/jaytee .
+      run:  docker build -t vicky-gt/jaytee .
 
     - name: Push Docker Image
       run: |
-        docker tag Vicky-GT/jaytee Vicky-GT/jaytee:latest
-        docker push Vicky-GT/jaytee:latest
+        docker tag vicky-gt/jaytee vicky-gt/jaytee:latest
+        docker push vicky-gt/jaytee:latest
 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
