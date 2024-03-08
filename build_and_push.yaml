@@ -10,11 +10,13 @@
 
   tasks:
     - name: Clone GitHub repository
+      community.general.docker_image:
       git:
         repo: "{{ github_repo }}"
         dest: /tmp/jaytee
 
     - name: Build Docker image
+      community.general.docker_image:
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         source: build
@@ -24,11 +26,13 @@
           force: yes
 
     - name: Log in to Docker Hub
+      community.general.docker_image:
       docker_login:
         username: "{{ dockerhub_username }}"
         password: "{{ dockerhub_password }}"
 
     - name: Push Docker image to Docker Hub
+      community.general.docker_image:
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         push: yes
