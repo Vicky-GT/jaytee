@@ -10,7 +10,6 @@
 
   tasks:
     - name: Clone GitHub repository
-      community.general.docker_image:
       git:
         repo: "{{ github_repo }}"
         dest: /tmp/jaytee
