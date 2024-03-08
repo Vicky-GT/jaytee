@@ -9,11 +9,6 @@
     dockerhub_repository: "vigneshwargt"            # Replace with your Docker Hub repository name
 
   tasks:
-    - name: Clone GitHub repository
-      git:
-        repo: "{{ github_repo }}"
-        dest: /tmp/jaytee
-
     - name: Build Docker image
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
