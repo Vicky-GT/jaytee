@@ -17,12 +17,12 @@
     - name: Build Docker image
       community.general.docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
-        source: build
         build:
           path: /tmp/jaytee
           dockerfile: Dockerfile  # Adjust the path to Dockerfile if necessary
           force: yes
-
+        source: build
+        
     - name: Log in to Docker Hub
       docker_login:
         username: "{{ dockerhub_username }}"
