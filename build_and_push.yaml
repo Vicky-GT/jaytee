@@ -4,8 +4,8 @@
   gather_facts: no
   vars:
     github_repo: "https://github.com/Vicky-GT/jaytee.git"  # Replace with your GitHub repository URL
-    dockerhub_username: ${{ secrets.DOCKER_USERNAME }}      # Using GitHub secrets
-    dockerhub_password: ${{ secrets.DOCKER_PASSWORD }}      # Using GitHub secrets
+    dockerhub_username: "{{ lookup('env', 'DOCKER_USERNAME') }}"  # Using environment variables
+    dockerhub_password: "{{ lookup('env', 'DOCKER_PASSWORD') }}"  # Using environment variables
     dockerhub_repository: "vigneshwargt"            # Replace with your Docker Hub repository name
 
   tasks:
