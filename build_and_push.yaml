@@ -2,6 +2,7 @@
 - name: Build and push Docker image
   hosts: localhost
   gather_facts: no
+  source: build
   vars:
     github_repo: "https://github.com/Vicky-GT/jaytee.git"  # Replace with your GitHub repository URL
     dockerhub_username: "{{ lookup('env', 'DOCKER_USERNAME') }}"  # Using environment variables
@@ -9,6 +10,11 @@
     dockerhub_repository: "vigneshwargt"            # Replace with your Docker Hub repository name
 
   tasks:
+    - name: Clone GitHub repository
+      git:
+        repo: "{{ github_repo }}"
+        dest: /tmp/jaytee
+
     - name: Build Docker image
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
@@ -25,3 +31,7 @@
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         push: yes
+        source: build  # <-- add
+        build:         # <-- add
+        path: /tmp/jaytee  # <-- move under build:
+      force: yes
