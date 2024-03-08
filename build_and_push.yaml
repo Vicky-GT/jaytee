@@ -18,8 +18,8 @@
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         build:
-          path: /tmp/jaytee
-          dockerfile: D:/Code/Jaytee/Dockerfile  # Adjust the path to Dockerfile if necessary
+          path: /Vicky-GT/jaytee
+          dockerfile: Dockerfile  # Adjust the path to Dockerfile if necessary
 
     - name: Log in to Docker Hub
       docker_login:
