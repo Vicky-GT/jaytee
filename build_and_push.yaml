@@ -33,5 +33,5 @@
         push: yes
         source: build  # <-- add
         build:         # <-- add
-        path: /tmp/jaytee  # <-- move under build:
+          path: /tmp/jaytee  # <-- move under build:
       force: yes
