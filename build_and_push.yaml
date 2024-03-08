@@ -12,13 +12,13 @@
     - name: Clone GitHub repository
       git:
         repo: "{{ github_repo }}"
-        dest: /Vicky-GT/jaytee
+        dest: /tmp/jaytee
 
     - name: Build Docker image
       docker_image:
         name: "{{ dockerhub_username }}/{{ dockerhub_repository }}"
         build:
-          path: /Vicky-GT/jaytee
+          path: /tmp/jaytee
           dockerfile: Dockerfile  # Adjust the path to Dockerfile if necessary
 
     - name: Log in to Docker Hub
